@@ -1,2 +1,2 @@
-# This is a title
-hello world!
+# 计科培养方案
+![picture](./document.pdf)
