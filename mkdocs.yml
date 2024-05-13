@@ -1,3 +1,27 @@
-site_name: My Docs
+site_name: 总是要寄存一些东西吧
+site_url: https://github.com/Wu-wu-u/Material-for-MkDocs-test
+site_author: Wu-wu-u
+site_description: Mkdocs Test
 theme:
-  material
+  name: material
+  palette:
+    # 日间模式
+    - scheme: default
+      # 主颜色
+      # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#primary-color
+      primary: indigo
+      # 链接等可交互元件的高亮色
+      # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#accent-color
+      accent: orange
+      toggle:
+        # 图标
+        icon: material/weather-night
+        # 鼠标悬浮提示
+        name: 切换至夜间模式
+    # 夜间模式
+    - scheme: slate
+      primary: indigo
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
