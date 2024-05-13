@@ -1,2 +1,2 @@
 # 计科培养方案
-![picture](./document.pdf)
+<embed src="document.pdf" type="application/pdf" width="100%" height="600px" />
