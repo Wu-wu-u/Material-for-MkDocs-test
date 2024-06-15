@@ -1,0 +1,1137 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Mkdocs Test">
+      
+      
+        <meta name="author" content="Wu-wu-u">
+      
+      
+        <link rel="canonical" href="https://github.com/Wu-wu-u/Material-for-MkDocs-test/LCDF_Report/report_2/">
+      
+      
+        <link rel="prev" href="../Report/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>仿真与调试过程分析 - 总是要寄存一些东西吧</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="总是要寄存一些东西吧" class="md-header__button md-logo" aria-label="总是要寄存一些东西吧" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            总是要寄存一些东西吧
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              仿真与调试过程分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="总是要寄存一些东西吧" class="md-nav__button md-logo" aria-label="总是要寄存一些东西吧" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    总是要寄存一些东西吧
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计科培养方案
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Build Website
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Build Website
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Build_Website/Tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Publish a Website with Material for MkDocs and GitHub Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LCDF Report
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            LCDF Report
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    逻辑设计思路
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    仿真与调试过程分析
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    仿真与调试过程分析
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1ps2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.PS2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.PS2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      上版功能验证
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2vga" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.VGA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.VGA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仿真测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      游戏开始
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.蜂鸣器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.蜂鸣器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.状态机
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.状态机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真结果
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.运动模块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.运动模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 方向控制仿真测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 触碰障碍或身体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 移动到空白格
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 吃到食物
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1ps2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.PS2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.PS2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      上版功能验证
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2vga" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.VGA
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.VGA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="仿真测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      游戏开始
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.蜂鸣器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.蜂鸣器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.状态机
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.状态机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      仿真结果
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.运动模块
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.运动模块">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 方向控制仿真测试
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 触碰障碍或身体
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 移动到空白格
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 吃到食物
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">仿真与调试过程分析</h1>
+<h2 id="1ps2">1.PS2</h2>
+<h3 id="_2">上版功能验证</h3>
+<p>将四个信号对应四个LED灯，上板结果如下：
+<img alt="1" src="../snake/1.jpg" />
+<img alt="2" src="../snake/2.jpg" />
+<img alt="3" src="../snake/3.jpg" />
+<img alt="4" src="../snake/4.jpg" />
+上板结果分析：成功读取四个按键的信号，PS2编写正确。</p>
+<h2 id="2vga">2.VGA</h2>
+<h3 id="_3">仿真测试</h3>
+<p>由于单独测试该模块，写了一个临时的计算 $state$ 变量的模块用于测试：</p>
+<pre><code class="language-verilog">module target_v(
+    input [9:0] cell_x,
+    input [8:0] cell_y,
+    output reg [2:0] state
+    );
+
+    wire [5:0] cell_addr_x; // 单元格 x 坐标
+    wire [4:0] cell_addr_y; // 单元格 y 坐标
+
+    parameter H_PIC = 10'd16;
+
+    assign cell_addr_x = cell_x / H_PIC; // 计算单元格 x 坐标
+    assign cell_addr_y = cell_y / H_PIC; // 计算单元格 y 坐标
+
+    always @(cell_x or cell_y) begin // 设置相应的单元格状态
+        if (cell_addr_x == 6'd1 &amp;&amp; cell_addr_y == 5'd1) begin
+            state = 3'd1;
+        end else if (cell_addr_x == 6'd2 &amp;&amp; cell_addr_y == 5'd1) begin
+            state = 3'd2;
+        end else if (cell_addr_x == 6'd3 &amp;&amp; cell_addr_y == 5'd1) begin
+            state = 3'd3;
+        end else if (cell_addr_x == 6'd4 &amp;&amp; cell_addr_y == 5'd2) begin
+            state = 3'd4;
+        end else if (cell_addr_x == 6'd5 &amp;&amp; cell_addr_y == 5'd2) begin
+            state = 3'd5;
+        end else if (cell_addr_x == 6'd6 &amp;&amp; cell_addr_y == 5'd2) begin
+            state = 3'd6;
+        end else begin
+            state = 3'd0;
+        end
+    end
+endmodule
+</code></pre>
+<p>临时 $top$ 模块：</p>
+<pre><code class="language-verilog">module vga_top(
+    input clk,
+    output [3:0] R, G, B,
+    output HS, VS
+    );
+
+    wire vga_clk;
+    wire [11:0] pixel;
+    wire [8:0] pix_y;
+    wire [9:0] pix_x;
+    wire [2:0] state;
+
+    parameter game_state = 2'b10; // 将 game_state 变量设置为参数，便于在testbench文件中修改
+    parameter H_PIC = 5'd16;
+
+    function [9:0] cell_x; // 计算像素点对应单元格的左上角x坐标
+        input [9:0] pix_x;
+        begin
+            cell_x = (pix_x &gt;&gt; 4) * H_PIC;
+        end
+    endfunction
+
+    function [8:0] cell_y; // 计算像素点对应单元格的左上角y坐标
+        input [8:0] pix_y;
+        begin
+            cell_y = (pix_y &gt;&gt; 4) * H_PIC;
+        end
+    endfunction
+
+    clk_gen ck_gen0(.clk(clk), .vga_clk(vga_clk));
+    vga_ctrl vga_ctrl0(.clk(vga_clk), .rst(1'b0), .Din({pixel[3:0], pixel[7:4], pixel[11:8]}), 
+                        .row(pix_y), .col(pix_x), .R(R), .G(G), .B(B), .HS(HS), .VS(VS));
+    target_v gen_state(.cell_x(cell_x(pix_x)), .cell_y(cell_y(pix_y)), .state(state));
+    vga_screen_pic vga_screen_pic0(.clk(clk), .pix_x(pix_x), .pix_y(pix_y),
+                                    .state(state), .game_state(game_state), .pix_data_out(pixel));
+endmodule
+</code></pre>
+<p>$testbench$ 文件：</p>
+<pre><code class="language-verilog">module vga_tb();
+    reg clk;
+    wire [3:0] R, G, B;
+    wire HS, VS;
+
+    vga_top test(.clk(clk), .R(R), .G(G), .B(B), .HS(HS), .VS(VS));
+
+    // 切换游戏状态
+    defparam test.game_state = 2'b00; // 游戏待开始
+    // defparam test.game_state = 2'b01; // 游戏进行中
+    // defparam test.game_state = 2'b10; // 游戏结束
+
+    initial begin
+        clk = 1'b1;
+    end
+
+    always begin
+        clk = ~clk;
+        #5;
+    end
+endmodule
+</code></pre>
+<h4 id="_4">游戏开始</h4>
+<p>整体图片：</p>
+<p><img alt="vga_tb_1" src="../vga_part/vga_tb_1.png" /></p>
+<p>局部细节：</p>
+<p><img alt="vga_tb_2" src="../vga_part/vga_tb_2.png" /></p>
+<p>经比对，该数据与 $.coe$ 文件中的数据相同。</p>
+<h2 id="3">3.蜂鸣器</h2>
+<h3 id="_5">仿真测试</h3>
+<p>$testbench$ 文件：</p>
+<pre><code class="language-verilog">module beep_tb();
+    reg clk;
+    reg [1:0] game_state;
+
+    wire beep;
+
+    top_beep test(.clk(clk), .game_state(game_state), .beep(beep));
+
+    // 修改参数，缩短仿真时间
+    defparam test.bp_go.TIME_125ms = 24'd1249;
+    defparam test.bp_go.AS_4 = 18'd21;
+    defparam test.bp_go.A4 = 18'd22;
+    defparam test.bp_go.GS_4 = 18'd24;
+    defparam test.bp_go.G4 = 18'd25;
+
+    defparam test.bp_gs.TIME_125ms = 24'd1249;
+    defparam test.bp_gs.A4 = 19'd22;
+    defparam test.bp_gs.D5 = 19'd17;
+    defparam test.bp_gs.C5 = 19'd19;
+    defparam test.bp_gs.B4 = 19'd20;
+    defparam test.bp_gs.FS_4 = 19'd27;
+    defparam test.bp_gs.G4 = 19'd25;
+    defparam test.bp_gs.D4 = 19'd37;
+    defparam test.bp_gs.E4 = 19'd30;
+    defparam test.bp_gs.F4 = 19'd28;
+    defparam test.bp_gs.C4 = 19'd38;
+
+    defparam test.TIME_125ms = 26'd6250;
+
+    initial begin
+        clk = 1'b1;
+        game_state = 2'b00;
+        #100000;
+        game_state = 2'b01;
+        #100000;
+        game_state = 2'b10;
+    end
+
+    always begin
+        clk = ~clk;
+        #5;
+    end
+endmodule
+</code></pre>
+<p>仿真结果已在解释实现步骤时展示。</p>
+<h2 id="4">4.状态机</h2>
+<h3 id="_6">仿真代码</h3>
+<pre><code class="language-verilog">module test_state(
+
+    );
+    reg rst;
+    reg clk;
+    reg start_button;
+
+    initial begin
+        rst=1'b0;
+        clk=1'b1;
+        start_button=1'b0;
+    end
+
+    always begin
+        #5 clk=~clk;
+    end
+    always begin
+        #100000 rst=1;
+        #100000 start_button=1;
+        #10 start_button=0;
+    end
+
+    wire HS,VS;
+    wire R,G,B;
+    wire AN;
+    wire SEG;
+    wire LED;
+    wire beep;
+    top top(.rst(rst),.clk(clk),.start_button(start_button),.ps2_clk(1'b0),.ps2_data(1'b0),.VS(VS),.HS(HS),.R(R),.G(G),.B(B));
+    defparam top.run_module0.MAX_CNT =7;
+endmodule
+</code></pre>
+<h3 id="_7">仿真结果</h3>
+<p><img alt="alt text" src="../game_state.png" />
+游戏初始为<strong>开始界面</strong>状态(<code>2'b00</code>)rst始终置1，当<code>start_button</code>置1时游戏进入<strong>游玩中</strong>状态(<code>2'b01</code>)；当gameover置为1时，游戏进入结束状态(<code>2'b10</code>)；当<code>start_button</code>再次置为1时，<code>gameover</code>重置为0，同时游戏状态重置为<strong>游玩中</strong>(<code>2'b01</code>)</p>
+<h2 id="5">5.运动模块</h2>
+<h3 id="51">5.1 方向控制仿真测试</h3>
+<pre><code class="language-verilog">module test_state(
+
+    );
+    reg rst;
+    reg clk;
+    reg start_button;
+    reg [1:0]dir;
+
+    initial begin
+        rst=1'b0;
+        clk=1'b1;
+        start_button=1'b0;
+        dir=2'b00;
+    end
+    // always begin
+    //     #100 start_button=1;
+    //     #100 start_button=0;
+    // end
+    always begin
+        #5 clk=~clk;
+    end
+    always begin
+        #100000 rst=1;
+        #100000 start_button=1;
+        #10 start_button=0;
+    end
+    always begin
+        #1000 dir=2'b00;
+        #1000 dir=2'b01;
+        #1000 dir=2'b10;
+        #1000 dir=2'b11;
+    end
+    wire HS,VS;
+    wire R,G,B;
+    wire AN;
+    wire SEG;
+    wire LED;
+    wire beep;
+    top top(.rst(rst),.clk(clk),.start_button(start_button),.ps2_clk(1'b0),.ps2_data(1'b0),.VS(VS),.HS(HS),.R(R),.G(G),.B(B));
+
+    defparam top.run_module0.MAX_CNT =7;
+endmodule
+
+</code></pre>
+<p><img alt="alt text" src="../run_part/5.1_dir.png" />
+测试每1000ns改变一次dir信号：每当<code>game_clk</code>为正边沿时，改变<code>current_dir</code>为<code>dir</code>，同时有限制条件：当欲改变方向与运动方向相反时，不会发生改变。</p>
+<p>激励图中，蛇分别发生向上、向右、向下、向左的运动，xy坐标发生对应正确的变化。</p>
+<h3 id="52">5.2 触碰障碍或身体</h3>
+<p>触碰身体：
+<img alt="bodydead" src="../run_part/5.2_bodydead.png" />
+人为在 (30,15)放置了一个不动的身体块(即<code>state[30][15]=3'b010</code>)，当head坐标移动到(30,15)时<code>gameover</code>置1，游戏结束。</p>
+<hr />
+<p>触碰障碍：
+<img alt="blockdead" src="../run_part/5.2_blockdead.png" />
+初始不改变蛇移动方向，径直向右移动到最边界(39,15)，<code>gameover</code>置1，游戏结束</p>
+<h3 id="53">5.3 移动到空白格</h3>
+<p><img alt="empty" src="../run_part/5.3_empty.png" />
+图中监测了蛇头的x坐标和两个身子的坐标，以及途径的(21,15)(22,15)(23,15)(24,15)四处位置的状态变化；</p>
+<p>可以清楚看到蛇头坐标正确增加的同时，身子坐标随之挪动，并且沿途格子依次状态从空白变为头、身再到空白</p>
+<h3 id="54">5.4 吃到食物</h3>
+<p><img alt="food" src="../run_part/5.4_food.png" />
+初始在(25,15)放置了小食物，在蛇头抵达前score=0和length=1；
+当吃到食物后，新产生随机的食物坐标，并且身体增长，body_x[3]出现新的值，length增长，score增加</p>
+<h1 id="_8">上板结果分析</h1>
+<h1 id="_9">小组成员分工及贡献比例</h1>
+<h1 id="_10">实现过程中所参考的所有代码的链接</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
